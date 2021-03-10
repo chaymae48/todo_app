@@ -1,3 +1,4 @@
+import { Button, Checkbox } from '@material-ui/core';
 import React from 'react';
 import '../App.css';
 
@@ -7,12 +8,12 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
         <div className="todo"
         style={{ textDecoration: todo.isCompleted ? "line-through": ""}}>
             <div>
-                <button onClick={() => removeTodo(index)}>X</button>
+            <Checkbox onClick={() => completeTodo(index)}/>
             </div>
         {todo.text}
-        <div>
-            <button onClick={() => completeTodo(index)}>Done</button>
-        </div>
+            <div>
+                <Button onClick={() => removeTodo(index)}>X</Button>
+            </div>
         </div>
     );
 };
