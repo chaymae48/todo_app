@@ -3,23 +3,23 @@ import Todo from './todo'
 import TodoForm from './todoForm'
 
 function TodoApp() {
-    const [todos, setTodos] = React.useState([]);
+    const [tasks, setTasks] = React.useState([]);
 
-  const addTodo = text => {
-    const newTodos = [...todos, { text }];
-    setTodos(newTodos);
+  const addTask = text => {
+    const newTasks = [...tasks, { text }];
+    setTasks(newTasks);
   };
 
-  const completeTodo = index => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
-    setTodos(newTodos);
+  const completeTask = index => {
+    const newTasks = [...tasks];
+    newTasks[index].isDone = true;
+    setTasks(newTasks);
   };
 
-  const removeTodo = index => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+  const removeTask = index => {
+    const newTasks = [...tasks];
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
   };
     return (
         <div>
@@ -27,16 +27,16 @@ function TodoApp() {
             display: 'flex',
             justifyContent: 'center',
             }}>My Todo-List</h1>
-            {todos.map((todo, index) => (
+            {tasks.map((task, index) => (
             <Todo
                 key={index}
                 index={index}
-                todo={todo}
-                completeTodo={completeTodo}
-                removeTodo={removeTodo}
+                task={task}
+                completeTask={completeTask}
+                removeTask={removeTask}
             />
             ))}
-            <TodoForm addTodo={addTodo} />
+            <TodoForm addTask={addTask} />
         </div>
     );
 }
